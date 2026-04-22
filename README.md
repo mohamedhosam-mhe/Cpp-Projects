@@ -1,130 +1,117 @@
-# \# 🚀 C++ Projects
+# 🚀 C++ Projects
 
+A collection of beginner-to-intermediate C++ console applications built to practice programming fundamentals, improve code structure, and explore different problem-solving techniques. Each project is self-contained and demonstrates clean coding principles, modular design, and practical use of core C++ features.
 
+---
 
-\# 🚀 C++ Projects
+## 📂 Projects
 
+### 1. 🧮 Math Game
 
+An interactive math quiz game where the player solves randomly generated arithmetic problems under configurable difficulty settings.
 
-A collection of C++ console applications created for practicing programming fundamentals, improving code structure, and experimenting with different problem‑solving techniques.  
+**Features:**
+- Multiple difficulty levels (Easy, Medium, Hard)
+- Multiple operation types: Addition, Subtraction, Multiplication, Division
+- Score tracking across rounds
+- Modular architecture using enums, structs, and functions
 
-Each project is self‑contained and demonstrates clean coding, modular design, and practical use of C++ features.
+📁 [`Math Game/`](./Math%20Game/)
 
+---
 
+### 2. ✂️ Rock-Paper-Scissors
 
-\---
+A classic Rock-Paper-Scissors game implemented in a clean and straightforward style.
 
+**Features:**
+- Basic game loop with round management
+- Random computer move generation
+- Clear win / lose / draw detection logic
 
+📁 [`Rock-Paper-Scissor Project/`](./Rock-Paper-Scissor%20Project/)
 
-\## 📂 Project Structure
+---
 
+### 3. ✂️ Rock-Paper-Scissors (Updated)
 
+An improved and more scalable version of the original Rock-Paper-Scissors game, refactored with better software design in mind.
 
-\### \*\*1. Math Game\*\*
+**Features:**
+- Cleaner separation of concerns
+- More maintainable and extensible code
+- Modern C++ style and idioms
 
-An interactive math quiz game where the player solves randomly generated arithmetic problems.
+📁 [`Rock-Paper-Scissor UPDATE/`](./Rock-Paper-Scissor%20UPDATE/)
 
+---
 
+## 🛠️ Technologies
 
-\*\*Features\*\*
+| Language | Standard | Interface |
+|----------|----------|-----------|
+| C++ | C++17 | Console (CLI) |
 
-\- Multiple difficulty levels  
+---
 
-\- Multiple operation types (Add, Subtract, Multiply, Divide)  
+## 🧠 What This Repo Demonstrates
 
-\- Score tracking  
+- Fundamental C++ syntax and control flow
+- Use of functions, enums, and structs
+- Random number generation (`rand`, `srand`)
+- Game loop design patterns
+- Clean, readable code structure
+- Console-based user interaction
+- Iterative development & refactoring
 
-\- Modular structure using enums, structs, and functions  
+---
 
+## 🚀 Getting Started
 
+### Prerequisites
 
-📁 Folder: `Math Game/`
+- A C++ compiler: `g++`, `clang++`, or MSVC
+- C++17 or later recommended
 
+### Compile & Run (example)
 
+```bash
+# Navigate to a project folder
+cd "Math Game"
 
-\---
+# Compile
+g++ -std=c++17 -o MathGame MathGame.cpp
 
+# Run
+./MathGame
+```
 
+> Repeat the same steps for the other projects by navigating into their respective folders.
 
-\### \*\*2. Rock‑Paper‑Scissor Project\*\*
+---
 
-A classic Rock‑Paper‑Scissors game implemented in a simple, direct style.
+## 📁 Repository Structure
 
+```
+Cpp-Projects/
+├── Math Game/
+│   └── MathGame.cpp
+├── Rock-Paper-Scissor Project/
+│   └── RockPaperScissor.cpp
+├── Rock-Paper-Scissor UPDATE/
+│   └── RockPaperScissorUpdated.cpp
+└── README.md
+```
 
+---
 
-\*\*Features\*\*
+## 👤 Author
 
-\- Basic game loop  
+**Mohamed HosamEldin**
+- GitHub: [@mohamedhosam-mhe](https://github.com/mohamedhosam-mhe)
 
-\- Random computer choices  
+---
 
-\- Simple win/lose logic  
+## 📄 License
 
-
-
-📁 Folder: `Rock-Paper-Scissor Project/`
-
-
-
-\---
-
-
-
-\### \*\*3. Rock‑Paper‑Scissor UPDATE\*\*
-
-An improved and more scalable version of the game.
-
-
-
-\*\*Features\*\*
-
-\- Cleaner architecture  
-
-\- Better separation of logic  
-
-\- More maintainable code  
-
-\- More modern C++ style  
-
-
-
-📁 Folder: `Rock-Paper-Scissor UPDATE/`
-
-
-
-\---
-
-
-
-\## 🧠 Purpose of This Repository
-
-
-
-This repository is designed to help practice and demonstrate:
-
-
-
-\- Fundamental C++ syntax  
-
-\- Functions, enums, structs  
-
-\- Random number generation  
-
-\- Game logic design  
-
-\- Clean code structure  
-
-\- Console‑based user interaction  
-
-\- Problem‑solving and algorithmic thinking  
-
-
-
-
-
-\---
-
-
-
-
-
+This repository is open for learning and reference purposes. Feel free to explore, fork, and build upon it.
