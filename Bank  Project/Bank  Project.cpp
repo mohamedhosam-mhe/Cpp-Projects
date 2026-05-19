@@ -11,16 +11,25 @@ using namespace std;
 
 const string FileName = "Clients.txt";
 
+
+
+enum enMainMenueOptions { // This enum to select Main Menue option clearly
+	eListClients =1, eAddNewClient =2,
+	eDeleteClient =3, eUpdateClient =4,
+	eFindClient =5, Exit =6
+};
+
 // Banck project [ Course No.7 ] 
 
-int ReadNumberInRange(int From, int To) {
+int ReadMainMenueOption(int From, int To) {
 
 	int Number;
+	cout << "\n Choose what you want to do? [1 to 6]?   ";
 	cin >> Number;
 
 	while (Number<From || Number > To) {
 
-		cout << "Please Enter a valid number [1 to 6]? ";
+		cout << "\nPlease Enter a valid number [1 to 6]? ";
 		cin >> Number;
 	}
 
@@ -37,22 +46,9 @@ struct stClient {
 	bool MarkForDelete = false;
 };
 
+void MainMenuSceeen(vector <stClient> vClients); // We declair this in the beggining to let the compilar know that this function is available
+// to not get any errors if we used the function before it is wrote 
 
-void MainMenuSceeen() {
-
-	system("cls");
-	cout << "======================================================\n";
-	cout << "\t\tMain Menue Screen\n";
-	cout << "======================================================\n";
-	cout << "\t[1] Show Client List.	 \n";
-	cout << "\t[2] Add New Client.	 \n";
-	cout << "\t[3] Delete Client.		 \n";
-	cout << "\t[4] Update Client Info. \n";
-	cout << "\t[5] Find Client.		 \n";
-	cout << "\t[6] Exit.				 \n";
-	cout << "======================================================\n";
-
-}
 
 
 stClient ConvertLineToRecord(string Line, string Delim = "#//#") { // This converts every line record to structrue record 
@@ -123,6 +119,7 @@ void HeaderOfClientsList() {
 
 void ShowClientsList(vector <stClient> vClients) {
 
+	system("cls");
 
 	cout << "\n\t\t\t\tClient List (" << vClients.size() << ") Client(s)." << endl;
 	HeaderOfClientsList();
@@ -212,6 +209,8 @@ void UpdateFileWithNewClient(string FileName, stClient Client) {
 }
 
 void AddNewClient(vector <stClient> &vClients) { 
+
+	system("cls");
 
 	stClient Client; // Fill New Client Details
 	string AccountNumber; // Account Number to check if its already exists or no
@@ -331,6 +330,8 @@ void UpdateClientsFile(string FileName, vector <stClient> vClients) { // remove 
 
 bool DeleteClient(vector <stClient>& vClients) {
 
+	system("cls");
+
 	DeleteClientScreen();
 	string AccountNumber;
 	stClient Client;
@@ -412,6 +413,8 @@ void UpdateThisClient(string AccountNumber, vector <stClient>& vClients) {
 
 bool UpdateClientInfo(vector <stClient> &vClients) {
 
+	system("cls");
+
 	stClient Client;
 	string AccountNumber;
 	char ConfirmUpdating = 'N';
@@ -470,6 +473,8 @@ void FindClientScreen() {
 
 bool FindClient(vector <stClient> vClients) {
 
+	system("cls");
+
 	string AccountNumber;
 	stClient Client;
 	FindClientScreen();
@@ -501,50 +506,53 @@ bool FindClient(vector <stClient> vClients) {
 
 
 
+
 //      *** Finally ***
 
 // Put all functionalities together
+
 
 void ReturnToMainMenue(vector <stClient>& vClients) {
 
 	cout << "Press any key to go back to Main Menue...";
 	system("pause");
-	
+	MainMenuSceeen(vClients);
+
 }
 
-void BankSystem(vector <stClient> &vClients) {
+
+void BankSystem(vector <stClient> &vClients, enMainMenueOptions MainMenuOption) {
 	
 	system("cls");
-	short UserChoice;
-	MainMenuSceeen();
 
-	cout << "\nChoose what do you want to do? [1 to 6] ? ";
-	UserChoice = ReadNumberInRange(1, 6);
+	switch (MainMenuOption) {
 
-	switch (UserChoice) {
-
-	case 1:
+	case enMainMenueOptions::eListClients :
 		ShowClientsList(vClients);
 		ReturnToMainMenue(vClients);
-		BankSystem(vClients);
-	case 2:
+		break;
+	case enMainMenueOptions::eAddNewClient:
 		AddNewClient(vClients);
 		ReturnToMainMenue(vClients);
-		BankSystem(vClients);
-	case 3:
+		break;
+
+	case enMainMenueOptions::eDeleteClient:
 		DeleteClient(vClients);
 		ReturnToMainMenue(vClients);
-		BankSystem(vClients);
-	case 4:
+		break;
+
+	case enMainMenueOptions::eUpdateClient:
 		UpdateClientInfo(vClients);
 		ReturnToMainMenue(vClients);
-		BankSystem(vClients);
-	case 5:
+		break;
+
+	case enMainMenueOptions::eFindClient:
 		FindClient(vClients);
 		ReturnToMainMenue(vClients);
-		BankSystem(vClients);
-	case 6:
+		break;
 
+	case 6:
+		system("cls");
 		break;
 	
 	}
@@ -552,6 +560,22 @@ void BankSystem(vector <stClient> &vClients) {
 }
 
 
+void MainMenuSceeen(vector <stClient> &vClients) {
+
+	system("cls");
+	cout << "======================================================\n";
+	cout << "\t\tMain Menue Screen\n";
+	cout << "======================================================\n";
+	cout << "\t[1] Show Client List.	 \n";
+	cout << "\t[2] Add New Client.	 \n";
+	cout << "\t[3] Delete Client.		 \n";
+	cout << "\t[4] Update Client Info. \n";
+	cout << "\t[5] Find Client.		 \n";
+	cout << "\t[6] Exit.				 \n";
+	cout << "======================================================\n";
+
+	BankSystem(vClients,(enMainMenueOptions)ReadMainMenueOption(1,6));
+}
 
 
 
@@ -564,9 +588,9 @@ int main()
 
 	vector <stClient> vClients = SaveFileDataToVecrtor(FileName);
 
-	BankSystem(vClients);
+	/*BankSystem(vClients);*/
 	
-
+	MainMenuSceeen(vClients);
 
 
 
